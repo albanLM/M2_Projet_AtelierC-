@@ -6,14 +6,14 @@ class SED;
 class Evenement
 {
 	private:
-		const double _heureDeclechement;
-		const SED *_simulation;
+		double _heureDeclechement;
+		SED *_simulation;
 
 	public:
 		Evenement(double heureDeclechement);
 		~Evenement();
 
-		double heureDeclechement() const;
+		double heureDeclechement();
 		virtual void traiter() = 0;
 };
 
