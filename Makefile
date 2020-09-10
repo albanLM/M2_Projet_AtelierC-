@@ -11,7 +11,7 @@ all: $(OBJ_PATH)main.o $(OBJ_PATH)Arrivee.o $(OBJ_PATH)Banque.o $(OBJ_PATH)Caiss
 $(OBJ_PATH)main.o:
 	$(CC) -o $@ -c main.cpp $(CFLAGS)
 
-$(OBJ_PATH)%.o:
+$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
 	$(CC) -o $@ -c $(SRC_PATH)$*.cpp $(CFLAGS)
 
 clean:
