@@ -9,18 +9,35 @@
 #define DEPART_H
 
 #include "Evenement.h"
-#include "Caissier.h"
-#include "Client.h"
 
+class Caissier;
+class Client;
+class Simulation;
+
+/**
+ * @brief      Cette classe décrit le départ d'un Client de la simulation.
+ */
 class Depart : public Evenement
 {
 	private:
-		const Caissier *_caissier;
-		const Client *_client;
+		Caissier *const _caissier;
+		Client *const _client;
+		Simulation *const _simulation;
 
 	public:
-		Depart(double heureDeclenchement, SED &simulation, Caissier& caissier, Client& client);
+		/**
+		 * @brief      Construit une nouvelle instance.
+		 *
+		 * @param[in]  heureDeclenchement  L'heure de déclenchement de l'événement de départ
+		 * @param      simulation          La simulation
+		 * @param      caissier            Le caissier qui libère le client
+		 * @param      client              Le client qui quitte la simulation
+		 */
+		Depart(double heureDeclenchement, Simulation *const simulation, Caissier *const caissier, Client *const client);
 
+		/**
+		 * @brief      Traite l'événement de départ d'un Client.
+		 */
 		void traiter();
 };
 

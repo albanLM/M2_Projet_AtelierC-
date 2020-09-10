@@ -10,11 +10,28 @@
 
 #include "Evenement.h"
 
+class Simulation;
+
+/**
+ * @brief      Cette classe décrit une arrivée de Client dans la simulation.
+ */
 class Arrivee : public Evenement
 {
-	public:
-		Arrivee(double heureDeclenchement, SED &simulation);
+	private:
+		Simulation *const _simulation;
 
+	public:
+		/**
+		 * @brief      Construit une nouvelle instance.
+		 *
+		 * @param[in]  heureDeclenchement  L'heure de déclenchement de l'événement.
+		 * @param      simulation          La simulation.
+		 */
+		Arrivee(double heureDeclenchement, Simulation *const simulation);
+
+		/**
+		 * @brief      Traite l'événement d'arrivée d'un Client.
+		 */
 		void traiter();
 };
 

@@ -13,18 +13,39 @@
 
 #include "Evenement.h"
 
+
+/**
+ * @brief      Cette classe décrit une simulation à événements discrets
+ */
 class SED
 {
 	protected:
 		double _tempsCourant;
-		std::priority_queue<Evenement*, std::vector<Evenement*>, compareEvenements> _pEvenements;
+		std::priority_queue<Evenement*, std::vector<Evenement*>, compareEvenements> _echeancier;
 
 	public:
-		SED();
-		~SED();
 		
+		/**
+		 * @brief      Construit une nouvelle instance de simulation.
+		 */
+		SED();
+		
+		/**
+		 * @brief      Point d'entrée de la simulation.
+		 * 
+		 * Lance la simulation. Celle-ci se termine quand tout les événements de l'échéancier ont été traités.
+		 * 
+		 */
 		void lancer();
+		/**
+		 * @brief      Ajoute un événement à la simulation.
+		 *
+		 * @param      e     Événement à ajouter
+		 */
 		void ajouter(Evenement *e);
+		/**
+		 * @brief      Retourne le temps courant de la simulation. 
+		 */
 		double tempsCourant() const;
 };
 

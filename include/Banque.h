@@ -22,9 +22,10 @@ class Banque
 		Banque(double tempsMoyenService, int nbCaissiers);
 		~Banque();
 	
-		Caissier& caissierDispo();
+		Caissier* caissierDispo();
 		int nbCaissiers() const;
 		int nbClients() const;
+		FileAttente& fileAttente() const;
 		Simulation* simulation()const;
 };
 

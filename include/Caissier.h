@@ -1,5 +1,5 @@
 /**
- * \file Caissier.cpp
+ * \file Caissier.h
  * \brief Classe caissier
  * \author jp pauquet
  * 
