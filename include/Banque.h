@@ -15,6 +15,7 @@ class Banque
 		Caissier *_caissiers;
 
 	public:
+		Banque();
 		Banque(double tempsMoyenService, int nbCaissiers);
 		~Banque();
 	
