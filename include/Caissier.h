@@ -24,7 +24,7 @@ class Caissier
 		bool estDispo() const;
 
 		void servir(Client client);
-		void liberer();
+		Client liberer();
 };
 
 #endif
