@@ -5,6 +5,7 @@
 
 #include "Client.h"
 
+class Banque;
 class FileAttente
 {
 	private:
@@ -12,8 +13,13 @@ class FileAttente
 		double _longueurMoy;
 		double _tempsMoyenAttente;
 
+		Banque * _banque;
+
 		// DeQueue
 		std::deque<Client> _clients;
+
+		void majTempsMoyenAttente(Client client);
+		void majLongueurMoy();
 
 	public:
 		FileAttente();

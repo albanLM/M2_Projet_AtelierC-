@@ -4,6 +4,7 @@
 #include "FileAttente.h"
 #include "Caissier.h"
 
+class Simulation;
 class Banque
 {
 	private:
@@ -14,6 +15,8 @@ class Banque
 		FileAttente _fileAttente;
 		Caissier *_caissiers;
 
+		Simulation* _simulation;
+
 	public:
 		Banque();
 		Banque(double tempsMoyenService, int nbCaissiers);
@@ -22,6 +25,7 @@ class Banque
 		Caissier& caissierDispo();
 		int nbCaissiers() const;
 		int nbClients() const;
+		Simulation* simulation()const;
 };
 
 #endif

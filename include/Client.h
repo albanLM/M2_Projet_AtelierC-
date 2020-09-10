@@ -8,7 +8,7 @@ class Client
 
 	public:
 		Client(double heureArrivee);
-		~Client();
+		
 		
 		double heureArrivee() const;
 };
