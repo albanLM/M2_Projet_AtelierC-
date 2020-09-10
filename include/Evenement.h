@@ -5,7 +5,7 @@
 class SED;
 class Evenement
 {
-	private:
+	protected:
 		double _heureDeclechement;
 		SED *_simulation;
 
