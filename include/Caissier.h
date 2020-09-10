@@ -30,7 +30,6 @@ class Caissier
 		 * \param[in] tempsMoyenService 
 		 */
 		Caissier(Banque &banque, double tempsMoyenService);
-		~Caissier();
 
 		/**
 		 * \fn double tempsMoyenService() const

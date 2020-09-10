@@ -4,7 +4,7 @@
 class Client
 {
 	private:
-		const double _heureArrivee;
+		double _heureArrivee;
 
 	public:
 		Client(double heureArrivee);

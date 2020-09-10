@@ -28,7 +28,6 @@ class FileAttente
 		int longueurMax() const;
 		double longueurMoy() const;
 		double tempsMoyenAttente() const;	
-
 		void ajouter(Client client);
 		bool estVide() const;
 		Client retirer();
