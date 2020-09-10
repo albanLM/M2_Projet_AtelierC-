@@ -25,6 +25,8 @@ class Simulation : public SED
 		
 		double dureePrevue() const;
 		double tempsMoyenArrivees() const;
+
+		Banque& banque() const;
 };
 
 #endif

@@ -36,7 +36,7 @@ class Banque
 		~Banque();
 	
 		/**
-		 * \fn Caissier& caissierDispo()
+		 * \fn Caissier* caissierDispo()
 		 * \return Caissier ou NULL
 		 * \brief Retourne le premier caissier disponible
 		 */
@@ -59,6 +59,13 @@ class Banque
 		 * \return Retourne la simulation par référence
 		 */
 		Simulation* simulation()const;
+
+		/**
+		 * \fn FileAttente& fileAttente() const
+		 * \return Retourne une référence vers la file d'attente
+		 */
+		FileAttente& fileAttente() const;
+		
 };
 
 #endif

@@ -1,6 +1,6 @@
 #include "../include/Evenement.h"
 
-Evenement::Evenement(double heureDeclechement, SED &simulation) : _simulation(&simulation)
+Evenement::Evenement(double heureDeclechement)
 {
     _heureDeclechement = heureDeclechement;
 }
