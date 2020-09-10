@@ -7,7 +7,8 @@ Caissier::Caissier( Banque &banque,
                     :_banque(&banque),
                     _tempsMoyenService(tempsMoyenService)                    
 {
-
+    _dispo = 1;
+    _nbClients = 0;
 }
 double Caissier::tempsMoyenService() const{return _tempsMoyenService;}
 double Caissier::tauxOccupation() const
@@ -21,10 +22,12 @@ void Caissier::servir(Client client)
 {
     _client = &client;
     _nbClients++;
+    _dispo = 0;
 }
 Client Caissier::liberer()
 {
     Client c = *_client;
     _client = NULL;
+    _dispo = 1;
     return c;
 }
