@@ -1,3 +1,10 @@
+/**
+* \file Depart.h
+* \brief Classe dérivée de Evenement. Représente le départ d'un Client. 
+* \author J.P. Pauquet & A. Le Moult
+* \date 09/09/2020
+*/
+
 #ifndef DEPART_H
 #define DEPART_H
 
@@ -12,9 +19,8 @@ class Depart : public Evenement
 		const Client *_client;
 
 	public:
-		Depart(double heureDeclenchement, Caissier& caissier, Client& client);
-		~Depart();
-	
+		Depart(double heureDeclenchement, SED &simulation, Caissier& caissier, Client& client);
+
 		void traiter();
 };
 

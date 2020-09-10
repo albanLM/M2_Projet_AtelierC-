@@ -31,7 +31,8 @@
 *.out
 *.app
 
-Doxyfile
 # Documentation
 doc/
 Doxyfile
+html/
+latex/

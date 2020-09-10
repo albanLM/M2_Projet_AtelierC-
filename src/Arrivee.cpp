@@ -2,12 +2,9 @@
 #include "../include/Evenement.h"
 
 
-Arrivee::Arrivee(double heureDeclenchement) 
-    :Evenement(heureDeclenchement)
-{
+Arrivee::Arrivee(double heureDeclenchement, SED &simulation) 
+    :Evenement(heureDeclenchement, simulation) {}
 
-}
-
-void traiter() {
-
+void Arrivee::traiter() {
+	// TODO
 }
