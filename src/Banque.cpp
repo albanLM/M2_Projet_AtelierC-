@@ -41,3 +41,4 @@ Caissier* Banque::caissierDispo()
 int Banque::nbCaissiers()const{return _nbCaissiers;}
 int Banque::nbClients()const{return _nbClients;}
 Simulation* Banque::simulation()const{return _simulation;}
+FileAttente& Banque::fileAttente(){return _fileAttente;}

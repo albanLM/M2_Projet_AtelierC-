@@ -64,7 +64,7 @@ class Banque
 		 * \fn FileAttente& fileAttente() const
 		 * \return Retourne une référence vers la file d'attente
 		 */
-		FileAttente& fileAttente() const;
+		FileAttente& fileAttente();
 		
 };
 
