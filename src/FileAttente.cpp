@@ -17,7 +17,7 @@ double FileAttente::tempsMoyenAttente()const{return _tempsMoyenAttente;}
 bool FileAttente::estVide()const{return _clients.empty();}
 
 
-void FileAttente::ajouter(Client client)
+void FileAttente::ajouter(Client *client)
 {
     _clients.push_back(client);
     if (_longueurMax<(int)_clients.size())
@@ -30,9 +30,9 @@ void FileAttente::ajouter(Client client)
     
 }
 
-void FileAttente::majTempsMoyenAttente(Client client)
+void FileAttente::majTempsMoyenAttente(Client *client)
 {
-    double tpsArrivee = client.heureArrivee();
+    double tpsArrivee = client->heureArrivee();
     double tpsCourant = _banque->simulation()->tempsCourant();
 
     double tpsAttente = tpsCourant-tpsArrivee;

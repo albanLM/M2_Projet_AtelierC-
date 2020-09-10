@@ -16,9 +16,9 @@ class FileAttente
 		Banque * _banque;
 
 		// DeQueue
-		std::deque<Client> _clients;
+		std::deque<Client*> _clients;
 
-		void majTempsMoyenAttente(Client client);
+		void majTempsMoyenAttente(Client *client);
 		void majLongueurMoy();
 
 	public:
@@ -28,9 +28,9 @@ class FileAttente
 		int longueurMax() const;
 		double longueurMoy() const;
 		double tempsMoyenAttente() const;	
-		void ajouter(Client client);
+		void ajouter(Client *client);
 		bool estVide() const;
-		Client retirer();
+		Client* retirer();
 };
 
 #endif

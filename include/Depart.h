@@ -20,9 +20,9 @@ class Simulation;
 class Depart : public Evenement
 {
 	private:
+		Simulation *const _simulation;
 		Caissier *const _caissier;
 		Client *const _client;
-		Simulation *const _simulation;
 
 	public:
 		/**
