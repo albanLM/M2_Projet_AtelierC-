@@ -15,14 +15,14 @@ void Arrivee::traiter() {
 	std::poisson_distribution<int> distri(_simulation->tempsMoyenArrivees());
 
 	// Création du client à entrer dans la simulation
-	Client client = Client(_simulation->tempsCourant());
+	Client *client = new Client(_simulation->tempsCourant());
 	// Récupération d'un caissier disponible si il existe
 	Caissier *caissier = _simulation->banque().caissierDispo();
 
 	// Si un caissier est disponible
 	if (caissier != nullptr) {
 		// Servir le client
-		caissier->servir(client);
+		caissier->servir(*client);
 	}
 	// Sinon
 	else {

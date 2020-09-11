@@ -18,12 +18,8 @@ class FileAttente
 		// DeQueue
 		std::deque<Client*> _clients;
 
-		void majTempsMoyenAttente(Client *client);
-		void majLongueurMoy();
-
 	public:
 		FileAttente();
-		~FileAttente();
 		
 		int longueurMax() const;
 		double longueurMoy() const;

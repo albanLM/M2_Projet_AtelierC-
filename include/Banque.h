@@ -40,7 +40,7 @@ class Banque
 		 * \return Caissier ou NULL
 		 * \brief Retourne le premier caissier disponible
 		 */
-		Caissier* caissierDispo();
+		Caissier* caissierDispo() const;
 
 		/**
 		 * \fn int nbCaissiers() const
@@ -58,13 +58,13 @@ class Banque
 		 * \fn Simulation* simulation()const
 		 * \return Retourne la simulation par référence
 		 */
-		Simulation* simulation()const;
+		Simulation* simulation() const;
 
 		/**
 		 * \fn FileAttente& fileAttente() const
 		 * \return Retourne une référence vers la file d'attente
 		 */
-		FileAttente& fileAttente() const;
+		FileAttente& fileAttente();
 		
 };
 

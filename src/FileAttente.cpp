@@ -9,35 +9,33 @@ FileAttente::FileAttente()
 {
     _longueurMax = _longueurMoy = _tempsMoyenAttente = 0;
 }
-FileAttente::~FileAttente(){}
 
 int FileAttente::longueurMax()const{return _longueurMax;}
-double FileAttente::longueurMoy()const{return _longueurMoy;}
-double FileAttente::tempsMoyenAttente()const{return _tempsMoyenAttente;}
+double FileAttente::longueurMoy()const{return _longueurMoy / _banque->simulation()->tempsCourant();}
+double FileAttente::tempsMoyenAttente()const{return _tempsMoyenAttente / _banque->nbClients();}
 bool FileAttente::estVide()const{return _clients.empty();}
 
 
 void FileAttente::ajouter(Client *client)
 {
     _clients.push_back(client);
-    if (_longueurMax<(int)_clients.size())
+
+    // Mise à jour de la taille maximale de la file d'attente
+    if (_longueurMax < (int)_clients.size())
     {
-        _longueurMax = _clients.size();
-        majLongueurMoy();
-        
-        
+        _longueurMax = _clients.size();   
     }
-    
 }
 
-void FileAttente::majTempsMoyenAttente(Client *client)
-{
-    double tpsArrivee = client->heureArrivee();
-    double tpsCourant = _banque->simulation()->tempsCourant();
+Client* FileAttente::retirer() {
+    Client *client = _clients.front();
 
-    double tpsAttente = tpsCourant-tpsArrivee;
+    // Mise à jour du temps d'attente moyen et de la longueur moyenne dans la file
+    double attenteClient = _banque->simulation()->tempsCourant() - client->heureArrivee();
+    _tempsMoyenAttente += attenteClient;
+    _longueurMoy += attenteClient * _clients.size();
 
-    _tempsMoyenAttente = (_tempsMoyenAttente+tpsAttente)/tpsCourant;
+    _clients.pop_front();
+
+    return client;
 }
-
-void FileAttente::majLongueurMoy(){}

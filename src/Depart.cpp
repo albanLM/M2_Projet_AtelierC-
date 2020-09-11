@@ -11,7 +11,7 @@ void Depart::traiter() {
 	if (!fileAttente.estVide())
 	{
 		clientSuivant = fileAttente.retirer();
-		_caissier->servir(clientSuivant);
+		_caissier->servir(*clientSuivant);
 	}
 	else
 	{

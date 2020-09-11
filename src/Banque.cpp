@@ -2,9 +2,8 @@
 #include "../include/FileAttente.h"
 #include "../include/Simulation.h"
 #include "../include/Caissier.h"
-#include <cstddef>
 
-Banque::Banque(){}
+Banque::Banque() {}
 Banque::Banque(double* tempsMoyenServices, int nbCaissiers, Simulation& simulation)
 {
     _tempsMoyenServices = tempsMoyenServices;
@@ -18,14 +17,14 @@ Banque::Banque(double* tempsMoyenServices, int nbCaissiers, Simulation& simulati
     {
         _caissiers[i] = Caissier(*this, tempsMoyenServices[i]);
     }
-    
 }
+
 Banque:: ~Banque()
 {
     delete[] _caissiers;
 }
 
-Caissier* Banque::caissierDispo()
+Caissier* Banque::caissierDispo() const
 {
     int index = 0;
     while (index<_nbCaissiers)
@@ -35,9 +34,11 @@ Caissier* Banque::caissierDispo()
             return &_caissiers[index];
         }
     }
-    return NULL;
+    return nullptr;
 }
 
-int Banque::nbCaissiers()const{return _nbCaissiers;}
-int Banque::nbClients()const{return _nbClients;}
-Simulation* Banque::simulation()const{return _simulation;}
+int Banque::nbCaissiers() const { return _nbCaissiers; }
+int Banque::nbClients() const { return _nbClients; }
+Simulation* Banque::simulation() const { return _simulation; }
+
+FileAttente& Banque::fileAttente() { return _fileAttente; }

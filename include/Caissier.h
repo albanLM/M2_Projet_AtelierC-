@@ -60,7 +60,7 @@ class Caissier
 		 * \brief Sers un client, se met indisponible
 		 * \param[in] Le client à servir
 		 */
-		void servir(Client *client);
+		void servir(Client &client);
 
 		/**
 		 * \fn         void liberer()

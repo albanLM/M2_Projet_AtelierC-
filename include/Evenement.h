@@ -27,6 +27,8 @@ class Evenement
 		 */
 		Evenement(double heureDeclechement);
 
+		virtual ~Evenement();
+
 		/**
 		 * @brief      Retourne l'heure de déclenchement de l'événement.
 		 *
