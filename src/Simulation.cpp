@@ -11,15 +11,23 @@ Simulation::Simulation(double dureePrevue, int nbCaissier, double *tempsServices
     _nbClientServis = 0;
     
     _tempsAttenteMoy = 0;
-    _tauxOccupationParCaisse = 0;
+    
+    _nbClientParCaisse = new int[nbCaissier];
+    _tauxOccupationParCaisse = new double[nbCaissier];
     
     for (int i = 0; i < nbCaissier; i++)
     {
         _nbClientParCaisse[i] = 0;
+        _tauxOccupationParCaisse[i] = 0;
     }
     
 
     _banque = Banque(tempsServices, nbCaissier, *this);
+}
+Simulation::~Simulation()
+{
+    delete[] _nbClientParCaisse;
+    delete[] _tauxOccupationParCaisse;
 }
 
 double Simulation::dureePrevue()const{return _dureePrevue;}
