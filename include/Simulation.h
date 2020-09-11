@@ -16,17 +16,18 @@ class Simulation : public SED
 		int _longueurMoy;
 		int _nbClientServis;
 		int * _nbClientParCaisse;
-		double tempsAttenteMoy;
-		double tauxOccupationParCaisse;
+		double _tempsAttenteMoy;
+		double _tauxOccupationParCaisse;
 
 	public:
+		Simulation();
 		Simulation(double dureePrevue, int nbCaissier, double *tempsServices, double tempsMoyenArrivees);
 		~Simulation();
 		
 		double dureePrevue() const;
 		double tempsMoyenArrivees() const;
 
-		Banque& banque() const;
+		Banque& banque();
 };
 
 #endif
