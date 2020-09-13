@@ -6,11 +6,11 @@ Depart::Depart(double heureDeclenchement, Simulation *const simulation, Caissier
 
 void Depart::traiter() {
 	Client *clientSuivant;
-	FileAttente fileAttente = _simulation->banque().fileAttente();
+	FileAttente *fileAttente = &_simulation->banque().fileAttente();
 
-	if (!fileAttente.estVide())
+	if (!fileAttente->estVide())
 	{
-		clientSuivant = fileAttente.retirer();
+		clientSuivant = fileAttente->retirer();
 		_caissier->servir(*clientSuivant);
 	}
 	else

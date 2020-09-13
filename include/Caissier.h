@@ -7,10 +7,11 @@
 
 #ifndef CAISSIER_H
 #define CAISSIER_H
-#include "Client.h"
 
+#include <random>
+
+class Client;
 class Banque;
-
 class Caissier
 {
 	private:
@@ -22,7 +23,16 @@ class Caissier
 		int _nbClients;				/*!< Nombre de clients servis*/
 		bool _dispo;				/*!< Disponibilité du caissier*/
 
+		static std::default_random_engine _generator;
+
 	public:
+        Caissier(const Caissier&) = delete;
+
+		/**
+		 * @brief      Constructeur par défaut.
+		 */
+		Caissier();
+
 		/**
 		 * \fn Caissier(Banque &banque, double tempsMoyenService)
 		 * \brief Constructeur de Caissier
@@ -67,6 +77,8 @@ class Caissier
 		 * \brief      Libère le caissier et le rend disponible
 		 */
 		void liberer();
+
+		void afficherInfos() const;
 };
 
 #endif

@@ -4,6 +4,8 @@
 #include "../include/Evenement.h"
 #include "../include/Simulation.h"
 
+std::default_random_engine Arrivee::_generator;
+
 Arrivee::Arrivee(double heureDeclenchement, Simulation *const simulation) 
     :Evenement(heureDeclenchement), _simulation(simulation) {}
 
@@ -11,7 +13,6 @@ void Arrivee::traiter() {
 	//** Traitement de l'arrivée d'un client **//
 
 	// Déclaration des variables nécessaire à la distribution de poisson
-	std::default_random_engine generator;
 	std::poisson_distribution<int> distri(_simulation->tempsMoyenArrivees());
 
 	// Création du client à entrer dans la simulation
@@ -34,7 +35,7 @@ void Arrivee::traiter() {
 	//** Création de la prochaine arrivée de client **//
 
 	// Calcul de l'heure prévue pour la prochaine arrivée d'un client
-	double heurePrevue = _simulation->tempsCourant() +  (double) distri(generator);
+	double heurePrevue = _simulation->tempsCourant() +  (double) distri(_generator);
 
 	// Si la prochaine arrivée survient avant la fin de la simulation
 	if(heurePrevue <= _simulation->dureePrevue()) {

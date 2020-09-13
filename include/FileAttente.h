@@ -13,13 +13,14 @@ class FileAttente
 		double _longueurMoy;
 		double _tempsMoyenAttente;
 
-		Banque * _banque;
+		Banque *const _banque;
 
 		// DeQueue
 		std::deque<Client*> _clients;
 
 	public:
-		FileAttente();
+        FileAttente(const FileAttente&) = delete;
+		FileAttente(Banque *const banque = nullptr);
 		
 		int longueurMax() const;
 		double longueurMoy() const;

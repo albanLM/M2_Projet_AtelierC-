@@ -27,6 +27,10 @@ class Evenement
 		 */
 		Evenement(double heureDeclechement);
 
+
+		/**
+		 * @brief      Destructeur virtuel pour les événements.
+		 */
 		virtual ~Evenement();
 
 		/**
@@ -57,7 +61,7 @@ class compareEvenements {
 	   * @return     Retourne le résultat de la comparaison de l'heure de déclenchement des deux événements. 
 	   */
 	  int operator() ( Evenement *e1, Evenement *e2) {
-	    return e1->heureDeclechement() < e2->heureDeclechement();
+	    return e1->heureDeclechement() > e2->heureDeclechement();
 	  }
 };
 

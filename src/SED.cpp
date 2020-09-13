@@ -5,6 +5,7 @@
 */
 
 #include "../include/SED.h"
+#include <iostream>
 
 SED::SED() {
 	_tempsCourant = 0.0;

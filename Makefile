@@ -7,8 +7,12 @@ CC=g++
 CXXFLAGS=
 CFLAGS=-W -Wall -pedantic
 
-all: $(OBJ_PATH)main.o $(OBJ_PATH)Arrivee.o $(OBJ_PATH)Banque.o $(OBJ_PATH)Caissier.o $(OBJ_PATH)Client.o $(OBJ_PATH)Depart.o $(OBJ_PATH)Evenement.o $(OBJ_PATH)FileAttente.o $(OBJ_PATH)SED.o $(OBJ_PATH)Simulation.o 
-	$(CC) $(CXXFLAGS) -o Banque.out $^ $(CFLAGS)
+TARGET=Banque.out
+
+all: $(TARGET)
+
+$(TARGET): $(OBJ_PATH)main.o $(OBJ_PATH)Arrivee.o $(OBJ_PATH)Banque.o $(OBJ_PATH)Caissier.o $(OBJ_PATH)Client.o $(OBJ_PATH)Depart.o $(OBJ_PATH)Evenement.o $(OBJ_PATH)FileAttente.o $(OBJ_PATH)SED.o $(OBJ_PATH)Simulation.o 
+	$(CC) $(CXXFLAGS) -o $(TARGET) $^ $(CFLAGS)
 
 $(OBJ_PATH)main.o: main.cpp
 	$(CC) $(CXXFLAGS) -o $@ -c $< $(CFLAGS)
@@ -21,3 +25,6 @@ clean:
 
 doxy:
 	doxygen Doxyfile
+
+run:
+	./$(TARGET)

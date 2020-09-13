@@ -25,6 +25,8 @@ class Depart : public Evenement
 		Client *const _client;
 
 	public:
+        Depart(const Depart&) = delete;
+
 		/**
 		 * @brief      Construit une nouvelle instance.
 		 *

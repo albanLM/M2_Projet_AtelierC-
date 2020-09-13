@@ -15,13 +15,15 @@ class Banque
 {
 	private:
 		int _nbCaissiers;				/*!< Nombre de caissier*/
-		int _nbClients;					/*!< Nombre de Client*/
+//		int _nbClients;					/*!< Nombre de Client*/
 		double* _tempsMoyenServices;	/*!< Temps moyen de service de chaque caissier*/
 		FileAttente _fileAttente;		/*!< File d'attente*/
 		Caissier *_caissiers;			/*!< Caissiers de la banque*/
 		Simulation* _simulation;		/*!< Lien vers la simulation*/
 
 	public:
+        Banque(const Banque&) = delete;
+
 		/**
 		 * \brief Constructeur par default
 		 */
@@ -33,6 +35,10 @@ class Banque
 		 * \param[in] nbCaissier Nombre de caissier
 		 */
 		Banque(double* tempsMoyenServices, int nbCaissiers, Simulation& simulation);
+
+		/**
+		 * @brief      Destructeur de l'objet Banque.
+		 */
 		~Banque();
 	
 		/**

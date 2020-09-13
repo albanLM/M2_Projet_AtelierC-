@@ -8,6 +8,8 @@
 #ifndef ARRIVEE_H
 #define ARRIVEE_H
 
+#include <random>
+
 #include "Evenement.h"
 
 class Simulation;
@@ -17,10 +19,12 @@ class Simulation;
  */
 class Arrivee : public Evenement
 {
-	private:
+    private:
 		Simulation *const _simulation;
+        static std::default_random_engine _generator;
 
 	public:
+        Arrivee(const Arrivee&) = delete;
 		/**
 		 * @brief      Construit une nouvelle instance.
 		 *

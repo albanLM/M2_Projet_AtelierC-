@@ -5,16 +5,27 @@
 #include "../include/Simulation.h"
 #include <iostream>
 
-FileAttente::FileAttente()
+FileAttente::FileAttente(Banque *const banque) : _banque(banque)
 {
-    _longueurMax = _longueurMoy = _tempsMoyenAttente = 0;
+    _longueurMax = 0;
+    _longueurMoy = _tempsMoyenAttente = 0.0;
 }
 
-int FileAttente::longueurMax()const{return _longueurMax;}
-double FileAttente::longueurMoy()const{return _longueurMoy / _banque->simulation()->tempsCourant();}
-double FileAttente::tempsMoyenAttente()const{return _tempsMoyenAttente / _banque->nbClients();}
-bool FileAttente::estVide()const{return _clients.empty();}
+int FileAttente::longueurMax() const { 
+    return _longueurMax;
+}
 
+double FileAttente::longueurMoy() const {
+    return _banque->simulation()->tempsCourant() != 0 ? _longueurMoy / _banque->simulation()->tempsCourant() : 0;
+}
+
+double FileAttente::tempsMoyenAttente() const {
+    return _banque->nbClients() != 0 ? _tempsMoyenAttente / _banque->nbClients() : 0;
+}
+
+bool FileAttente::estVide() const {
+    return _clients.empty();
+}
 
 void FileAttente::ajouter(Client *client)
 {

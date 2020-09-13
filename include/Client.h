@@ -7,6 +7,8 @@ class Client
 		double _heureArrivee;
 
 	public:
+        Client(const Client&) = delete;
+
 		Client(double heureArrivee);
 		
 		

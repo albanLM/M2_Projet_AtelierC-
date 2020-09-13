@@ -17,15 +17,8 @@ class Simulation : public SED
 		const double _tempsMoyenArrivees;	/*!< Temps moyen entre chaque arrivée*/
 		Banque _banque;						/*!< Banque*/
 
-		double _dureeReelle;				/*!< Durée réel de la sumulation*/
-		int _longueurMax;					/*!< Longueur maximum de la queue*/
-		int _longueurMoy;					/*!< Longueur moyenne de la queue*/
-		int _nbClientServis;				/*!< Nombre de CLient servis*/
-		int * _nbClientParCaisse;			/*!< Nombre de client servis dans chaque caisse*/
-		double _tempsAttenteMoy;			/*!< Temps d'attente moyen dans la file d'attente*/
-		double* _tauxOccupationParCaisse;	/*!< Taux d'occupation de chaque caissier*/
-
 	public:
+        Simulation(const Simulation&) = delete;
 
 		/**
 		 * \fn Simulation();
@@ -40,12 +33,6 @@ class Simulation : public SED
 		Simulation(double dureePrevue, int nbCaissier, double *tempsServices, double tempsMoyenArrivees);
 
 		/**
-		 * \fn ~Simulation();
-		 * \brief Destructeur de simulation
-		 */
-		~Simulation();
-		
-		/**
 		 * \fn double dureePrevue() const;
 		 * \return double Durée Prévue
 		 */
@@ -58,6 +45,8 @@ class Simulation : public SED
 		double tempsMoyenArrivees() const;
 
 		Banque& banque();
+
+		void afficherInfos();
 };
 
 #endif

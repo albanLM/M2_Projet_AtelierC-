@@ -36,3 +36,10 @@ doc/
 Doxyfile
 html/
 latex/
+
+# Other
+/cmake-build-debug/
+
+.idea/
+
+CMakeLists.txt
