@@ -20,6 +20,8 @@ class Simulation;
 class Arrivee : public Evenement
 {
     private:
+        Simulation * const _simulation;
+
         static std::default_random_engine _generator;
 
 	public:

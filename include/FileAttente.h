@@ -30,6 +30,7 @@ class FileAttente
 		int _longueurMax;
 		double _longueurMoy;
 		double _tempsMoyenAttente;
+		double _attenteClient;
 
 		Banque *const _banque;
 

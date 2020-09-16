@@ -8,7 +8,7 @@
 FileAttente::FileAttente(Banque *const banque) : _banque(banque)
 {
     _longueurMax = 0;
-    _longueurMoy = _tempsMoyenAttente = 0.0;
+    _longueurMoy = _tempsMoyenAttente = _attenteClient = 0.0;
 }
 
 int FileAttente::longueurMax() const { 
@@ -16,7 +16,7 @@ int FileAttente::longueurMax() const {
 }
 
 double FileAttente::longueurMoy() const {
-    return _banque->simulation()->tempsCourant() != 0 ? _longueurMoy / _banque->simulation()->tempsCourant() : 0;
+    return _banque->simulation()->tempsCourant() != 0 ? _longueurMoy / _attenteClient : 0;
 }
 
 double FileAttente::tempsMoyenAttente() const {
@@ -45,6 +45,7 @@ Client* FileAttente::retirer() {
     double attenteClient = _banque->simulation()->tempsCourant() - client->heureArrivee();
     _tempsMoyenAttente += attenteClient;
     _longueurMoy += attenteClient * _clients.size();
+    _attenteClient += attenteClient;
 
     _clients.pop_front();
 

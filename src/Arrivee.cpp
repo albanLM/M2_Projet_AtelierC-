@@ -31,7 +31,6 @@ void Arrivee::traiter() {
 		_simulation->banque().fileAttente().ajouter(client);
 	}
 
-
 	//** Création de la prochaine arrivée de client **//
 
 	// Calcul de l'heure prévue pour la prochaine arrivée d'un client
