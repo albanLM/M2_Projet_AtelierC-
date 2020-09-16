@@ -54,3 +54,15 @@ int Banque::nbClients() const {
 Simulation* Banque::simulation() const { return _simulation; }
 
 FileAttente& Banque::fileAttente() { return _fileAttente; }
+
+std::ostream &operator<<(std::ostream &os, const Banque &banque)
+{
+    os << "Clients servis durant la simulation :\t" << banque.nbClients() << std::endl;
+    os << banque._fileAttente;
+    for (int i = 0; i < banque._nbCaissiers; ++i)
+    {
+        os << "\nCaissier n°" << i << " : " << std::endl;
+        os << banque._caissiers[i];
+    }
+    return os;
+}

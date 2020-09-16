@@ -8,6 +8,7 @@
 #define CAISSIER_H
 
 #include <random>
+#include <ostream>
 
 class Client;
 class Banque;
@@ -88,8 +89,7 @@ class Caissier
 		 */
 		void liberer();
 
-		// TODO : Implémenter les méthodes surchargées de stream
-		void afficherInfos() const;
+        friend std::ostream &operator<<(std::ostream &os, const Caissier &caissier);
 };
 
 #endif

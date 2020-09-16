@@ -14,16 +14,10 @@ double Simulation::dureePrevue() const { return _dureePrevue; }
 double Simulation::tempsMoyenArrivees() const { return _tempsMoyenArrivees; }
 
 Banque& Simulation::banque() {return _banque;}
-void Simulation::afficherInfos() {
-    std::cout << "Afficher Infos Simulation" << std::endl;
-    int longueurMax = _banque.fileAttente().longueurMax();
-    double longueurMoy = _banque.fileAttente().longueurMoy();
 
-    std::cout << "Durée réelle : " << _tempsCourant << std::endl;
-    std::cout << "Longueur Max : " << longueurMax << std::endl;
-    std::cout << "Longueur Moy : " << longueurMoy << std::endl;
-    std::cout << "Clients Servis : " << _banque.nbClients() << std::endl;
-    std::cout << "Temps Attente Moyen : " << _banque.fileAttente().tempsMoyenAttente() << std::endl;
-    // std::cout << "Clients Servis Par Caisse : " << _nbClientParCaisse << std::endl;
-    // std::cout << "Taux Occupation Par Caisse : " << _tauxOccupationParCaisse << std::endl;
+std::ostream &operator<<(std::ostream &os, const Simulation &simulation)
+{
+    os << "Durée réelle de la simulation:\t" << simulation._tempsCourant << std::endl;
+    os << simulation._banque;
+    return os;
 }

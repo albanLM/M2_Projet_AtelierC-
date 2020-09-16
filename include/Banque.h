@@ -7,6 +7,7 @@
 #ifndef BANQUE_H
 #define BANQUE_H
 
+#include <ostream>
 #include "FileAttente.h"
 #include "Caissier.h"
 
@@ -26,6 +27,8 @@ class Banque
 		Simulation* _simulation;		/*!< Lien vers la simulation*/
 
 	public:
+        friend std::ostream &operator<<(std::ostream &os, const Banque &banque);
+
         /**
          * @brief Suppression du constructeur par copie.
          */
@@ -48,7 +51,7 @@ class Banque
 		 * @brief      Destructeur de l'objet Banque.
 		 */
 		~Banque();
-	
+
 		/**
 		 * \fn Caissier* caissierDispo()
 		 * \return Caissier ou NULL     Le premier caissier disponible

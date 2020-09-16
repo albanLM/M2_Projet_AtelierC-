@@ -7,6 +7,7 @@
 #ifndef SIMULATION_H
 #define SIMULATION_H
 
+#include <ostream>
 #include "SED.h"
 #include "Banque.h"
 
@@ -21,6 +22,8 @@ class Simulation : public SED
 		Banque _banque;						/*!< Banque*/
 
 	public:
+        friend std::ostream &operator<<(std::ostream &os, const Simulation &simulation);
+
         /**
          * @brief Suppression du constructeur par copie.
          */
@@ -51,11 +54,6 @@ class Simulation : public SED
 		 * @return Une référence vers la banque.
 		 */
 		Banque& banque();
-
-		/**
-		 * @brief Affiche les informations et les statistiques de la simulation.
-		 */
-		void afficherInfos();
 };
 
 #endif

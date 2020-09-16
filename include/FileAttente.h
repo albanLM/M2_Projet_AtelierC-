@@ -9,6 +9,7 @@
 #define FILEATTENTE_H
 
 #include <deque>
+#include <ostream>
 
 #include "Client.h"
 
@@ -37,7 +38,9 @@ class FileAttente
 		// DeQueue
 		std::deque<Client*> _clients;
 
-	public:
+    public:
+        friend std::ostream &operator<<(std::ostream &os, const FileAttente &attente);
+
         /**
          * @brief Suppression du constructeur par copie.
          */

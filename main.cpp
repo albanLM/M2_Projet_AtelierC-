@@ -1,3 +1,4 @@
+#include <iostream>
 #include "include/Simulation.h"
 
 int main(int argc, char const *argv[])
@@ -8,12 +9,11 @@ int main(int argc, char const *argv[])
 	tempsMoyServices[1] = 30.0;
 	tempsMoyServices[2] = 15.0;
 	double dureePrevue = 100.0;
-	double tempsMoyenArrivees = 8.0;
+	double tempsMoyenArrivees = 2.0;
 
 	Simulation simulation(dureePrevue, nbCaissier, tempsMoyServices, tempsMoyenArrivees);
 	simulation.lancer();
 
-	simulation.afficherInfos();
-
+	std::cout << simulation;
 	return 0;
 }

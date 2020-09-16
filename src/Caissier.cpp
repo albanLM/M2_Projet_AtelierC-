@@ -20,6 +20,7 @@ Caissier::Caissier( Banque &banque,
 }
 
 double Caissier::tempsMoyenService() const { return _tempsMoyenService; }
+// TODO : Corriger taux d'occupation
 double Caissier::tauxOccupation() const { return _tempsMoyenService*exp(-_tempsMoyenService); }
 int Caissier::nbClients() const { return _nbClients; }
 bool Caissier::estDispo() const { return _dispo; }
@@ -41,7 +42,9 @@ void Caissier::liberer()
     _client = nullptr;
     _dispo = true;
 }
-
-void Caissier::afficherInfos() const {
-    // TODO
+std::ostream &operator<<(std::ostream &os, const Caissier &caissier)
+{
+    os << "Taux d'occupation :\t" << caissier.tauxOccupation() << std::endl;
+    os << "Nombre de clients servis :\t" << caissier.nbClients() << std::endl;
+    return os;
 }

@@ -51,3 +51,10 @@ Client* FileAttente::retirer() {
 
     return client;
 }
+std::ostream &operator<<(std::ostream &os, const FileAttente &attente)
+{
+    os << "Taille max de la file d'attente :\t" << attente.longueurMax() << std::endl;
+    os << "Taille moyenne de la file d'attente :\t" << attente.longueurMoy() << std::endl;
+    os << "Temps d'attente moyen dans la file d'attente :\t" << attente.tempsMoyenAttente() << std::endl;
+    return os;
+}
