@@ -4,6 +4,7 @@
 * \author J.P. Pauquet & A. Le Moult
 * \date 09/09/2020
 */
+// TODO : Revoir la répartition des auteurs
 
 #ifndef DEPART_H
 #define DEPART_H
@@ -15,7 +16,7 @@ class Client;
 class Simulation;
 
 /**
- * @brief      Cette classe décrit le départ d'un Client de la simulation.
+ * @brief      Décrit le départ d'un Client de la simulation.
  */
 class Depart : public Evenement
 {
@@ -25,10 +26,13 @@ class Depart : public Evenement
 		Client *const _client;
 
 	public:
+        /**
+         * @brief Suppression du constructeur par copie.
+         */
         Depart(const Depart&) = delete;
 
 		/**
-		 * @brief      Construit une nouvelle instance.
+		 * @brief      Constructeur de la classe Depart.
 		 *
 		 * @param[in]  heureDeclenchement  L'heure de déclenchement de l'événement de départ
 		 * @param      simulation          La simulation

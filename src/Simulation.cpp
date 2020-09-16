@@ -12,8 +12,8 @@ Simulation::Simulation(double dureePrevue, int nbCaissier, double *tempsServices
 
 double Simulation::dureePrevue() const { return _dureePrevue; }
 double Simulation::tempsMoyenArrivees() const { return _tempsMoyenArrivees; }
-Banque& Simulation::banque() {return _banque;}
 
+Banque& Simulation::banque() {return _banque;}
 void Simulation::afficherInfos() {
     std::cout << "Afficher Infos Simulation" << std::endl;
     int longueurMax = _banque.fileAttente().longueurMax();

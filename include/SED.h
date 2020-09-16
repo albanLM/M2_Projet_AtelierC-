@@ -15,7 +15,7 @@
 
 
 /**
- * @brief      Cette classe décrit une simulation à événements discrets
+ * @brief      Décrit une Simulation à Événements Discrets
  */
 class SED
 {
@@ -34,7 +34,6 @@ class SED
 		 * @brief      Point d'entrée de la simulation.
 		 * 
 		 * Lance la simulation. Celle-ci se termine quand tout les événements de l'échéancier ont été traités.
-		 * 
 		 */
 		void lancer();
 		/**
@@ -44,7 +43,8 @@ class SED
 		 */
 		void ajouter(Evenement *e);
 		/**
-		 * @brief      Retourne le temps courant de la simulation. 
+		 * @brief Getter
+		 * @return Le temps courant de la simulation.
 		 */
 		double tempsCourant() const;
 };

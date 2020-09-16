@@ -15,21 +15,20 @@
 class Simulation;
 
 /**
- * @brief      Cette classe décrit une arrivée de Client dans la simulation.
+ * @brief      Décrit une arrivée de Client dans la simulation.
  */
 class Arrivee : public Evenement
 {
     private:
-		Simulation *const _simulation;
         static std::default_random_engine _generator;
 
 	public:
         Arrivee(const Arrivee&) = delete;
 		/**
-		 * @brief      Construit une nouvelle instance.
+		 * @brief      Constructeur de la classe Arrivee.
 		 *
-		 * @param[in]  heureDeclenchement  L'heure de déclenchement de l'événement.
-		 * @param      simulation          La simulation.
+		 * @param[in]  heureDeclenchement  L'heure de déclenchement de l'événement
+		 * @param      simulation          La simulation
 		 */
 		Arrivee(double heureDeclenchement, Simulation *const simulation);
 

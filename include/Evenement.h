@@ -11,7 +11,7 @@
 
 class SED;
 /**
- * @brief      Cette classe décrit un événement.
+ * @brief      Décrit un événement utilisable dans une Simulation à Événements Discrets (SED).
  */
 class Evenement
 {
@@ -20,7 +20,7 @@ class Evenement
 
 	public:
 		/**
-		 * @brief      Construit une nouvelle instance.
+		 * @brief      Constructeur de la classe Evenement.
 		 *
 		 * @param[in]  heureDeclechement  L'heure de déclenchement de
 		 *                                l'événement
@@ -34,10 +34,11 @@ class Evenement
 		virtual ~Evenement();
 
 		/**
-		 * @brief      Retourne l'heure de déclenchement de l'événement.
-		 *
+		 * \brief Getter
+		 * \return     L'heure de déclenchement de l'événement.
 		 */
 		double heureDeclechement();
+
 		/**
 		 * @brief      Traite l'événement.
 		 */
@@ -45,7 +46,7 @@ class Evenement
 };
 
 /**
- * @brief      Cette classe décrit la comparaison d'événements.
+ * @brief      Décrit la comparaison d'événements.
  * 
  * La comparaison d'événements est nécessaire pour l'utilisation d'une PriorityQueue
  * 
@@ -58,7 +59,7 @@ class compareEvenements {
 	   * @param      e1    L'événement n°1
 	   * @param      e2    L'événement n°2
 	   *
-	   * @return     Retourne le résultat de la comparaison de l'heure de déclenchement des deux événements. 
+	   * @return     Le résultat de la comparaison de l'heure de déclenchement des deux événements.
 	   */
 	  int operator() ( Evenement *e1, Evenement *e2) {
 	    return e1->heureDeclechement() > e2->heureDeclechement();

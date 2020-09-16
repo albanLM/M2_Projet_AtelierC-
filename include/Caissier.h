@@ -2,7 +2,6 @@
  * \file Caissier.h
  * \brief Classe caissier
  * \author jp pauquet
- * 
 */
 
 #ifndef CAISSIER_H
@@ -12,6 +11,10 @@
 
 class Client;
 class Banque;
+
+/**
+ * @brief Décrit un caissier de la banque.
+ */
 class Caissier
 {
 	private:
@@ -26,6 +29,9 @@ class Caissier
 		static std::default_random_engine _generator;
 
 	public:
+        /**
+         * @brief Suppression du constructeur par copie.
+         */
         Caissier(const Caissier&) = delete;
 
 		/**
@@ -35,7 +41,7 @@ class Caissier
 
 		/**
 		 * \fn Caissier(Banque &banque, double tempsMoyenService)
-		 * \brief Constructeur de Caissier
+		 * \brief Constructeur de la classe Caissier.
 		 * \param[in] Banque 
 		 * \param[in] tempsMoyenService 
 		 */
@@ -43,41 +49,46 @@ class Caissier
 
 		/**
 		 * \fn double tempsMoyenService() const
-		 * \return Retourne le temps moyen par service
+		 * \brief Getter
+		 * \return La durée moyenne d'un service.
 		 */
 		double tempsMoyenService() const;
 
 		/**
 		 * \fn double tauxOccupation() const
-		 * \return  Retourne de taux d'occupation par une loi de Poisson
+		 * \brief Getter
+		 * \return  Le taux d'occupation du caissier, exprimé en pourcentage.
 		 */
 		double tauxOccupation() const;
 
 		/**
 		 * \fn int nbClients() const
-		 * \return Retourne le nombre de client servi par le caissier
+		 * \brief Getter
+		 * \return Le nombre de client servis par le caissier.
 		 */
 		int nbClients() const;
 
 		/**
 		 * \fn bool estDispo() const
-		 * \return Indique si le caissier est libre ou non
+		 * \brief Getter
+		 * \return Indique si le caissier est disponible ou non.
 		 */
 		bool estDispo() const;
 
 		/**
 		 * \fn void servir(Client client)
-		 * \brief Sers un client, se met indisponible
+		 * \brief Sers un client et rend le caissier indisponible.
 		 * \param[in] Le client à servir
 		 */
 		void servir(Client &client);
 
 		/**
 		 * \fn         void liberer()
-		 * \brief      Libère le caissier et le rend disponible
+		 * \brief      Libère le client et rend le caissier disponible.
 		 */
 		void liberer();
 
+		// TODO : Implémenter les méthodes surchargées de stream
 		void afficherInfos() const;
 };
 
