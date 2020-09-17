@@ -16,6 +16,7 @@ int FileAttente::longueurMax() const {
 }
 
 double FileAttente::longueurMoy() const {
+    if(_longueurMoy == 0 || _attenteClient == 0) return 0;
     return _banque->simulation()->tempsCourant() != 0 ? _longueurMoy / _attenteClient : 0;
 }
 

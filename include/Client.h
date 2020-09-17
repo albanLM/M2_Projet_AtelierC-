@@ -7,6 +7,8 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
+#include <iostream>
+
 /**
  * @brief Décrit un client de la banque.
  */
@@ -32,6 +34,7 @@ class Client
 		 * \return L'heure d'arrivée du client.
 		 */
 		double heureArrivee() const;
+		friend std::ostream& operator<<(std::ostream& os, Client c);
 };
 
 #endif

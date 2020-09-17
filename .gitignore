@@ -43,3 +43,5 @@ latex/
 .idea/
 
 CMakeLists.txt
+
+.vscode/

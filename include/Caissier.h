@@ -26,6 +26,8 @@ class Caissier
 		double _tauxOccupation;		/*!< Taux d'occupation*/
 		int _nbClients;				/*!< Nombre de clients servis*/
 		bool _dispo;				/*!< Disponibilité du caissier*/
+		double _debutService;
+		double _tempsOccupe;			/*!< Temps total de service*/
 
 		static std::default_random_engine _generator;
 
