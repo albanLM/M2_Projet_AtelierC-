@@ -1,6 +1,6 @@
 #include "../include/Simulation.h"
 #include <iostream>
-#include <Arrivee.h>
+#include "../include/Arrivee.h"
 
 Simulation::Simulation(double dureePrevue, int nbCaissier, double *tempsServices, double tempsMoyenArrivees)
     : SED(), _dureePrevue(dureePrevue),
