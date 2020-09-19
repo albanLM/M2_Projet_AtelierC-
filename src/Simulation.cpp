@@ -17,7 +17,7 @@ Banque& Simulation::banque() {return _banque;}
 
 std::ostream &operator<<(std::ostream &os, const Simulation &simulation)
 {
-    os << "Durée réelle de la simulation:\t" << simulation._tempsCourant << std::endl;
+    os << "Durée réelle de la simulation :\t" << simulation._tempsCourant << std::endl;
     os << simulation._banque;
     return os;
 }
