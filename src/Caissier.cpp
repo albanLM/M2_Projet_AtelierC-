@@ -54,7 +54,7 @@ void Caissier::liberer()
 }
 std::ostream &operator<<(std::ostream &os, const Caissier &caissier)
 {
-    os << "Taux d'occupation :\t" << caissier.tauxOccupation() << std::endl;
-    os << "Nombre de clients servis :\t" << caissier.nbClients() << std::endl;
+    os << "Taux d'occupation : " << caissier.tauxOccupation() << std::endl;
+    os << "Nombre de clients servis : " << caissier.nbClients() << std::endl;
     return os;
 }

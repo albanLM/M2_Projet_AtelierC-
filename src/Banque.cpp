@@ -57,7 +57,7 @@ FileAttente& Banque::fileAttente() { return _fileAttente; }
 
 std::ostream &operator<<(std::ostream &os, const Banque &banque)
 {
-    os << "Clients servis durant la simulation :\t" << banque.nbClients() << std::endl;
+    os << "Clients servis durant la simulation : " << banque.nbClients() << std::endl;
     os << banque._fileAttente;
     for (int i = 0; i < banque._nbCaissiers; ++i)
     {

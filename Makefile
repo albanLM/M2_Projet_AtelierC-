@@ -4,15 +4,16 @@ INC_PATH = include/
 DOC_PATH = doc/
 
 CC=g++
-CXXFLAGS=
+CXXFLAGS=-std=c++17
 CFLAGS=-W -Wall -pedantic
+LIBFLAGS=-lboost_program_options
 
-TARGET=Banque.out
+TARGET=simuBanque
 
 all: $(TARGET)
 
 $(TARGET): $(OBJ_PATH)main.o $(OBJ_PATH)Arrivee.o $(OBJ_PATH)Banque.o $(OBJ_PATH)Caissier.o $(OBJ_PATH)Client.o $(OBJ_PATH)Depart.o $(OBJ_PATH)Evenement.o $(OBJ_PATH)FileAttente.o $(OBJ_PATH)SED.o $(OBJ_PATH)Simulation.o 
-	$(CC) $(CXXFLAGS) -o $(TARGET) $^ $(CFLAGS)
+	$(CC) $(LIBFLAGS) $(CXXFLAGS) -o $(TARGET) $^ $(CFLAGS)
 
 $(OBJ_PATH)main.o: main.cpp
 	$(CC) $(CXXFLAGS) -o $@ -c $< $(CFLAGS)
@@ -27,4 +28,4 @@ doxy:
 	doxygen Doxyfile
 
 run:
-	./$(TARGET)
+	./$(TARGET) -help

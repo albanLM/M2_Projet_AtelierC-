@@ -5,6 +5,7 @@
 namespace po = boost::program_options;
 
 bool traiterArguments(int argc, char const *argv[], int &nbCaissier, double &dureePrevue, double &tempsMoyenArrivees, std::vector<double> &tempsMoyServices) {
+    bool success = true;
     try {
         // Déclare les options supportées
         po::options_description description("Options autorisées");
@@ -14,40 +15,60 @@ bool traiterArguments(int argc, char const *argv[], int &nbCaissier, double &dur
                 ("st", po::value<std::vector<double>>(&tempsMoyServices)->multitoken()->required(),
                  "Défini le temps moyen de service par caissier")
                 ("dp", po::value<double>(&dureePrevue)->required(),
-                 "Défini la durée prévue de la simulation (défaut = 100.0)")
+                 "Défini la durée prévue de la simulation")
                 ("tm", po::value<double>(&tempsMoyenArrivees)->required(),
-                 "Défini le temps moyen d'arrivée (défaut = 5.0");
+                 "Défini le temps moyen d'arrivée");
 
         po::variables_map vm;
         po::store(po::command_line_parser(argc, argv).options(description).style(
                 po::command_line_style::unix_style | po::command_line_style::allow_long_disguise).run(), vm);
         // Si l'argument d'aide à été indiqué, affiche le message d'aide
-        if (vm.count("help"))
+        if(vm.count("help"))
         {
             std::cout << description << std::endl;
-            return false;
+            success = false;
+        }
+        else
+        {
+            po::notify(vm);
         }
 
-        po::notify(vm);
+        // Vérifie que le nombre que le nombre de caissier est supérieur à 0
+        if(success && nbCaissier <= 0) {
+            std::cerr << "Le nombre de caisiser doit être supérieur à 0." << std::endl;
+            success = false;
+        }
+
+        // Vérifie que les temps de services sont supérieurs à 0.
+        if(success && !std::none_of(tempsMoyServices.begin(), tempsMoyServices.end(), [](double tS){return tS < 0.0;})) {
+            std::cerr << "Les temps de services doivent tous être supérieurs à 0." << std::endl;
+            success = false;
+        }
 
         // Vérifie que le nombre de temps de services correspond au nombre de caissier
-        if(vm.count("st") && tempsMoyServices.size() != nbCaissier) {
+        if(success && tempsMoyServices.size() != nbCaissier) {
             std::cerr << "Le nombre de temps de services ne correspond pas au nombre de caissier !\nNombre de caissier = " << nbCaissier << " / Nombre de temps = " << tempsMoyServices.size() << std::endl;
-            return false;
+            success = false;
+        }
+
+        // Vérifie que le temps moyen d'arrivée est supérieur à 0
+        if(success && tempsMoyenArrivees <= 0.0) {
+            std::cerr << "Le temps moyen entre les arrivées doit être supérieur à 0." << std::endl;
+            success = false;
         }
     }
     catch(std::exception& e)
     {
         std::cerr << "Erreur : " << e.what() << "\n";
-        return false;
+        success = false;
     }
     catch(...)
     {
         std::cerr << "Erreur inconnue !" << "\n";
-        return false;
+        success = false;
     }
 
-    return true;
+    return success;
 }
 
 int main(int argc, char const *argv[])
@@ -58,10 +79,10 @@ int main(int argc, char const *argv[])
     std::vector<double> tempsMoyServices;
 
     if (!traiterArguments(argc, argv, nbCaissier, dureePrevue, tempsMoyenArrivees, tempsMoyServices)) {
-        return 1;
+        return 0;
     }
 
-    std::cout << "### Paramètres de la simulation ###" << std::endl;
+    std::cout << "\u001b[1m### Paramètres de la simulation ###\u001b[0m" << std::endl;
     std::cout << "Durée de la simulation : " << dureePrevue << std::endl;
     std::cout << "Temps moyen entre chaque arrivée : " << tempsMoyenArrivees << std::endl;
     std::cout << "Nombre de caissier : " << nbCaissier << std::endl;
@@ -73,13 +94,13 @@ int main(int argc, char const *argv[])
         std::cout << tempsMoyServices[i] << ", ";
         tempsMoyServicesTableau[i] = tempsMoyServices[i];
     }
-    std::cout << "\b\b\n" << std::endl;
+    std::cout << "\b\b \n" << std::endl;
 
     // Crée et lance la simulation
     Simulation simulation(dureePrevue, nbCaissier, tempsMoyServicesTableau, tempsMoyenArrivees);
 	simulation.lancer();
 
 	// Affiche les informations et statistiques de la simulation
-	std::cout << "### Résultats de la simulation ###\n" << simulation << std::endl;
+	std::cout << "\u001b[1m### Résultats de la simulation ###\u001b[0m\n" << simulation << std::endl;
 	return 0;
 }
