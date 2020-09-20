@@ -2,7 +2,6 @@
 #include "../include/Banque.h"
 #include "../include/Simulation.h"
 #include "../include/Depart.h"
-#include <cmath>
 
 std::default_random_engine Caissier::_generator;
 
@@ -22,8 +21,8 @@ Caissier::Caissier( Banque &banque,
 }
 
 double Caissier::tempsMoyenService() const { return _tempsMoyenService; }
-// TODO : Corriger taux d'occupation
-double Caissier::tauxOccupation() const 
+
+double Caissier::tauxOccupation() const
 {
     return (_tempsOccupe / _banque->simulation()->tempsCourant())*100;
 }

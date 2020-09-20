@@ -4,7 +4,6 @@
 * \author J.P. Pauquet & A. Le Moult
 * \date 09/09/2020
 */
-// TODO : Revoir la répartition des auteurs
 
 #ifndef DEPART_H
 #define DEPART_H
